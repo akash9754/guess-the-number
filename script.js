@@ -4,6 +4,7 @@ const privousInput = document.querySelector(".guesses");
 //const lableStyle = document.querySelector("label2#guess");
 const Body = document.querySelector("body");
 const diff = document.querySelector(".diffrence");
+const inputField = document.getElementById("guessField");
 const inputValueArr = [];
 let attempt = 9;
 const numb = Math.round((Math.random()*100)+1);
@@ -28,9 +29,9 @@ form.addEventListener("submit", (e)=>{
           }
         else if(inputNum == numb)
           {
-              alert("You won");
-              diff.innerHTML = "You won";
-              diff.style.color = "green"
+            diff.innerHTML = "You won";
+            diff.style.color = "green";
+            alert("You won");
           }
           inputValueArr.push(inputNum);
           privousInput.innerHTML =inputValueArr;
@@ -39,11 +40,14 @@ form.addEventListener("submit", (e)=>{
           leftAttempt.innerHTML = attempt;
           attempt--;
           if (inputNum > numb){
-            diff.innerHTML = "Your guessed number is higher"
+            diff.innerHTML = "Your guessed number is higher";
+            diff.style.color = "red"
           }
           else if (inputNum < numb){
-            diff.innerHTML = "Your guessed number is lower"
+            diff.innerHTML = "Your guessed number is lower";
+            diff.style.color = "red"
           }
+          inputField.value = "";
     }
 })
 
